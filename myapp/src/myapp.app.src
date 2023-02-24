@@ -1,5 +1,5 @@
 {application, myapp,
- [{description, "An OTP application"},
+ [{description, "a cool app"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, {myapp_app, []}},
