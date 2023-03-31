@@ -1,0 +1,7 @@
+opt_path: '/usr/bin/erl'
+apps_dirs:
+  - 'src'
+include_dirs:
+  - 'src'
+code_reload:
+  node: 'myapp-node'

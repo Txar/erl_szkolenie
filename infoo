@@ -1,0 +1,8 @@
+client: 
+    erl -setcookie myapp -sname 'fajoski_komputeras'
+
+server: 
+    rebar3 shell
+
+rpc:call: 
+    rpc:call('myapp-node@fajoski-komputeras', myapp_srv, service, [1,'+',1]).
