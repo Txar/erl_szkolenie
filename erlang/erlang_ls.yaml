@@ -14,4 +14,4 @@ lenses:
         - 'server-info'
         - 'suggest-spec'
 code_reload:
-    node: myapp-node@localhost
+    node: erlang-node@localhost

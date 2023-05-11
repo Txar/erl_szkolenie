@@ -1,14 +1,13 @@
 %%%-------------------------------------------------------------------
-%% @doc myapp top level supervisor.
+%% @doc erlang top level supervisor.
 %% @end
 %%%-------------------------------------------------------------------
 
--module(myapp_sup).
+-module(erlang_sup).
 
 -behaviour(supervisor).
 
 -export([start_link/0]).
-
 -export([init/1]).
 
 -define(SERVER, ?MODULE).
@@ -37,14 +36,9 @@ init([]) ->
 spec(StartF) ->
   spec(StartF, [], permanent).
 
-spec(Startf, Args, Restart) ->
-  {M, F, _Arity} = erlang:fun_info_mfa(Startf),
+spec(StartF, Args, Restart) ->
+  % no need to check arity, it will be validated by supervisor library
+  {M, F, _Arity} = erlang:fun_info_mfa(StartF),
   #{id => M,
     start => {M, F, Args},
-    restart => Restart
-  }.
-
-handle_request(Params) ->
-  io:format("Params: ~p", [Params]),
-  Output = list_to_binary(Params),
-  jsone:encode(#{<<"result">> => Output}).
+    restart => Restart}.
